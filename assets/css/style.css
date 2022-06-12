@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 6px;
+  }
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background: #d7d7d7;
+}
+
+.container::before {
+  content: "clip-path switch";
+  position: absolute;
+  top: 10%;
+  font-size: clamp(4em, 7vw, 10em);
+  text-transform: capitalize;
+  color: #9b9b9b;
+}
+
+.switch {
+  --width: 20em;
+  --height: 10em;
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--height);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.switch__checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switch__checkbox:checked ~ .switch__btn {
+  -webkit-animation: popIn .6s ease-in-out forwards;
+          animation: popIn .6s ease-in-out forwards;
+}
+
+.switch__checkbox:checked ~ .switch__btn .switch__dot {
+  -webkit-clip-path: circle(100%);
+          clip-path: circle(100%);
+}
+
+.switch__btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--height);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation: popOut .6s ease-in-out forwards;
+          animation: popOut .6s ease-in-out forwards;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.switch__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background: #2c2c2c;
+  -webkit-clip-path: circle(3.3em at 26% center);
+          clip-path: circle(3.3em at 26% center);
+  -webkit-transition: -webkit-clip-path .6s linear;
+  transition: -webkit-clip-path .6s linear;
+  transition: clip-path .6s linear;
+  transition: clip-path .6s linear, -webkit-clip-path .6s linear;
+}
+
+@media (max-width: 600px) {
+  .switch__dot {
+    -webkit-clip-path: circle(3em at 26% center);
+            clip-path: circle(3em at 26% center);
+  }
+}
+
+.switch__dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 26%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  width: 6.4em;
+  height: 6.4em;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+@-webkit-keyframes popIn {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+}
+
+@keyframes popIn {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+}
+
+@-webkit-keyframes popOut {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+}
+
+@keyframes popOut {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+}
+/*# sourceMappingURL=style.css.map */
